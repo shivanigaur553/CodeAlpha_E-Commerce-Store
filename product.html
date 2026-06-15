@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Product Details</h1>
+
+    <div id="productDetails"></div>
+    <a href="index.html">
+    <button>Back to Store</button>
+</a>
+    <script>
+const products = [
+{
+    id: 1,
+    name: "Laptop",
+    price: 50000,
+    image: "images/laptop.jpg",
+    description: "16GB RAM, 512GB SSD, Intel i7 Processor"
+},
+{
+    id: 2,
+    name: "Phone",
+    price: 20000,
+    image: "images/phone.jpg",
+    description: "8GB RAM, 128GB Storage, 5000mAh Battery"
+},
+{
+    id: 3,
+    name: "Headphones",
+    price: 2000,
+    image: "images/headphones.jpg",
+    description: "Noise Cancelling Wireless Headphones"
+},
+{
+    id: 4,
+    name: "Smart Watch",
+    price: 3500,
+    image: "images/watch.jpg",
+    description: "Heart Rate Monitor, Fitness Tracking"
+},
+{
+    id: 5,
+    name: "Keyboard",
+    price: 1500,
+    image: "images/keyboard.jpg",
+    description: "Mechanical Keyboard with RGB Lighting"
+},
+{
+    id: 6,
+    name: "Mouse",
+    price: 800,
+    image: "images/mouse.jpg",
+    description: "Wireless Optical Mouse"
+},
+{
+    id: 7,
+    name: "Tablet",
+    price: 18000,
+    image: "images/tablet.jpg",
+    description: "10-inch Display, 64GB Storage"
+},
+{
+    id: 8,
+    name: "Bluetooth Speaker",
+    price: 2500,
+    image: "images/speaker.jpg",
+    description: "Portable Speaker with Deep Bass"
+},
+{
+    id: 9,
+    name: "Gaming Headset",
+    price: 4000,
+    image: "images/gaming-headset.jpg",
+    description: "7.1 Surround Sound Gaming Headset"
+},
+{
+    id: 10,
+    name: "Monitor",
+    price: 12000,
+    image: "images/monitor.jpg",
+    description: "24-inch Full HD IPS Monitor"
+}
+];
+
+const selectedId =
+Number(localStorage.getItem("selectedProduct"));
+
+const product =
+products.find(p => p.id === selectedId);
+
+if (!product) {
+
+    document.getElementById("productDetails").innerHTML =
+    "<h2>Product Not Found!</h2>";
+
+} else {
+
+    document.getElementById("productDetails").innerHTML = `
+        <img src="${product.image}" width="300">
+
+        <h2>${product.name}</h2>
+
+        <p>Price: ₹${product.price}</p>
+
+        <p>${product.description}</p>
+    `;
+}
+</script>

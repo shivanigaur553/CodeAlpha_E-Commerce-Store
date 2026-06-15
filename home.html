@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+function logout() {
+
+    localStorage.removeItem("isLoggedIn");
+
+    alert("Logged Out Successfully!");
+
+    window.location.href = "login.html";
+}
+</script>
+<body>
+    <script>
+const isLoggedIn =
+localStorage.getItem("isLoggedIn");
+
+if(!isLoggedIn){
+    window.location.href =
+    "login.html";
+}
+</script>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="profile.html">Profile</a>
+
+    <a href="#" onclick="logout()">Logout</a>
+</nav>
+    <h1>My E-Commerce Store</h1>
+    <div class="search-container">
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Search products..."
+    >
+
+    <select id="categoryFilter">
+        <option value="All">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Accessories">Accessories</option>
+    </select>
+
+</div>
+    <div id="products"></div>
+
+    <h2>Cart</h2>
+<ul id="cart"></ul>
+<div id="billSummary">
+    <h2>Bill Summary</h2>
+
+    <p>Subtotal: <span id="subtotal">₹0</span></p>
+
+    <p>GST (18%): <span id="gst">₹0</span></p>
+
+    <p>Delivery Charge: <span id="delivery">₹50</span></p>
+
+    <h3>Grand Total: <span id="grandTotal">₹0</span></h3>
+</div>
+
+<h3 id="total">Total: ₹0</h3>
+<button id="checkoutBtn">Checkout</button>
+    <script src="script.js"></script>
+</body>
+</html>
+<footer>
+    <p>© 2026 E-Commerce Store</p>
+</footer>

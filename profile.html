@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>My Profile</h1>
+
+    <div id="profileCard"></div>
+
+    <a href="home.html">
+        <button>Back to Store</button>
+    </a>
+
+    <script>
+        const user =
+        JSON.parse(localStorage.getItem("user"));
+
+        const wishlist =
+JSON.parse(localStorage.getItem("wishlist")) || [];
+
+const cart =
+JSON.parse(localStorage.getItem("cart")) || {};
+
+document.getElementById("profileCard").innerHTML = `
+    <img
+        src="images/profile.png"
+        width="120"
+        style="border-radius:50%;"
+    >
+
+    <h2>${user.username}</h2>
+
+    <p>Email: ${user.email}</p>
+
+    <hr>
+
+    <h3>❤️ Wishlist Items</h3>
+
+    <p>${wishlist.length} Items</p>
+
+    <h3>🛒 Cart Items</h3>
+
+    <p>${Object.keys(cart).length} Items</p>
+
+    <h3>📦 Orders</h3>
+
+    <p>Coming Soon</p>
+`;
+    </script>
+
+</body>
+</html>

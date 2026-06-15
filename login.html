@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Welcome Back</h1>
+
+    <div class="form-container">
+
+        <input
+            type="email"
+            placeholder="Enter Email"
+            id="email"
+        >
+
+        <br><br>
+
+        <input
+            type="password"
+            placeholder="Enter Password"
+            id="password"
+        >
+
+        <br><br>
+
+        <button onclick="login()">
+            Login
+        </button>
+        <br><br>
+<p>
+    Don't have an account?
+    <a href="register.html">Register</a>
+</p>
+
+    </div>
+
+    <script>
+
+        function login() {
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const savedUser =
+    JSON.parse(
+        localStorage.getItem("user")
+    );
+
+    if(!savedUser){
+
+        alert(
+            "No registered user found!"
+        );
+
+        return;
+    }
+
+    if(
+        email === savedUser.email &&
+        password === savedUser.password
+    ){
+
+        alert("Login Successful!");
+
+localStorage.setItem("isLoggedIn", "true");
+
+window.location.href = "home.html";
+
+    } else {
+
+        alert(
+            "Invalid Email or Password!"
+        );
+    }
+}
+
+    </script>
+
+</body>
+</html>
